@@ -1,14 +1,30 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from "react";
+import { View } from "react-native";
+import { connect } from "react-redux";
+
+import ListContainer from '../../containers/listContainer/ListContainer';
 
 class FindPlaceScreen extends React.Component {
-  render () {
+  render() {
     return (
       <View>
-        <Text>FindPlaceScreen</Text>
+        <ListContainer places={this.props.places}/>
       </View>
-    )
+    );
   }
 }
 
-export default FindPlaceScreen;
+const mapStateToProps = state => {
+  return {
+    places: state.place.places
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FindPlaceScreen);
