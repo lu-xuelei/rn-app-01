@@ -1,23 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import { screens, registerScreens } from './src/screens/RegisterScreens';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// this is where you register all of your app's screens
+registerScreens(); 
+
+// Start the app
+Navigation.startSingleScreenApp ({
+  screen: {
+    screen: screens.AUTH_SCREEN, // unique ID registered with Navigation.registerScreen
+    title: 'Welcome', // title of the screen as appears in the nav bar (optional)
+    navigatorStyle: {}, // override the navigator style for the screen (optional)
+    navigatorButtons: {} // override the nav buttons for the screen (optional)
+  },  
+})
