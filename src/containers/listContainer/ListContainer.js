@@ -9,7 +9,7 @@ class ListContainer extends React.Component {
       <View style={styles.ListContainer}>
         <ListItems
           places={this.props.places}
-          onSelectPlace={this.props.selectPlace}
+          onSelectPlace={this.props.onSelectPlace}
         />
       </View>
     );

@@ -35,10 +35,11 @@ export const addPlace = placeName => {
  * 
  * @returns {object} action object with {type}
  */
-export const removePlace = () => {
+export const removePlace = (placeKey) => {
   console.log('[PlaceActions] removePlace...');
   return {
-    type: AT.REMOVE_PLACE
+    type: AT.REMOVE_PLACE,
+    placeKey: placeKey
   };
 };
 

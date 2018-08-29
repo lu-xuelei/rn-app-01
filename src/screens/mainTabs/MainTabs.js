@@ -1,7 +1,7 @@
 import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import { screens } from "../RegisterScreens";
+import * as screens from "../Screens";
 
 /**
  * To start the main tabs
@@ -13,7 +13,10 @@ const startMainTabs = () => {
     Icon.getImageSource("md-add-circle-outline", 30),
     // 1. Icon for Find Place
     Icon.getImageSource("ios-search", 30),
+    // 2. Icon for menu item
+    Icon.getImageSource("ios-menu", 30),
   ]).then(sources => {
+    console.log("startMainTabs.sources: ", sources)
     startTabBasedApps(sources);
   }).catch(err => {
     console.log(err);
@@ -32,14 +35,38 @@ const startTabBasedApps = icons => {
         screen: screens.ADD_PLACE_SCREEN,
         icon: icons[0],
         title: "Add Place",
+        navigatorButtons: {
+          leftButtons: [
+            {
+              icon: icons[2],
+              title: "Menu",
+              id: "sideDrawerToggle"
+            }
+          ]
+        },
       },
       {
         label: "Find",
         screen: screens.FIND_PLACE_SCREEN,
         icon: icons[1],
-        title: "Find Place"
+        title: "Find Place",
+        navigatorButtons: {
+          leftButtons: [
+            {
+              icon: icons[2],
+              title: "Menu",
+              id: "sideDrawerToggle"
+            }
+          ]
+        },
       }
-    ]
+    ],
+    drawer: {
+      left: {
+        screen: screens.SIDE_DRAWER_SCREEN,
+        fixedWidth:'30%'
+      }
+    }
   });
 };
 

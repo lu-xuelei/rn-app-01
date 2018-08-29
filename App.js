@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 
-import { screens, registerScreens } from './src/screens/RegisterScreens';
+import * as screens from './src/screens/Screens';
+import { registerScreens } from './src/screens/RegisterScreens';
 
 // this is where you register all of your app's screens
 registerScreens(); 

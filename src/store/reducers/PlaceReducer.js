@@ -59,7 +59,7 @@ const removePlace = (state, action) => {
   console.log("removePlace...");
   return {
     ...state,
-    places: state.places.filter(place => place.key !== state.selectedPlace.key),
+    places: state.places.filter(place => place.key !== action.placeKey),
     selectedPlace: null
   };
 };
