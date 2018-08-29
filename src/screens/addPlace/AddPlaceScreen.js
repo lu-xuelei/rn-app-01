@@ -7,11 +7,19 @@ import {addPlace} from '../../store/actions/Actions';
 import PlaceController from '../../containers/placeController/PlaceController';
 
 class AddPlaceScreen extends React.Component {
+  /**
+   * To have navigation buttons, the component must setOnNavigatorEvent
+   * and implement the event handler accordingly 
+   * @param {Object} props 
+   */
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
   }
 
+  /**
+   * Handle the event when nevigation bar triggered
+   */
   onNavigatorEvent = (event) => {
     if (event.type === "NavBarButtonPress") {
       if (event.id === "sideDrawerToggle") {
