@@ -10,7 +10,7 @@ registerScreens();
 Navigation.startSingleScreenApp ({
   screen: {
     screen: screens.AUTH_SCREEN, // unique ID registered with Navigation.registerScreen
-    title: 'Welcome', // title of the screen as appears in the nav bar (optional)
+    title: 'Login', // title of the screen as appears in the nav bar (optional)
     navigatorStyle: {}, // override the navigator style for the screen (optional)
     navigatorButtons: {} // override the nav buttons for the screen (optional)
   },  

@@ -3,8 +3,6 @@ import { TextInput, StyleSheet } from "react-native";
 
 /**
  * Default TextInput with:
- *  - width: 100%
- *  -
  * @param {Object} props
  */
 const defTextInput = props => {
@@ -23,7 +21,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#eee',
     padding: 5,
-    margin: 8,
+    marginTop: 8,
+    marginBottom: 8,
+    borderRadius: 20,
   }
 });
 

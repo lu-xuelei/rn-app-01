@@ -2,6 +2,7 @@ import { Navigation } from "react-native-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import * as screens from "../Screens";
+import { iconPrefix } from "../../UI/platform/PlatformInfo";
 
 /**
  * To start the main tabs
@@ -10,17 +11,18 @@ const startMainTabs = () => {
   // Load icons for the tabs
   Promise.all([
     // 0. Icon for Add Place
-    Icon.getImageSource("md-add-circle-outline", 30),
+    Icon.getImageSource(iconPrefix + "add-circle", 30),
     // 1. Icon for Find Place
-    Icon.getImageSource("ios-search", 30),
+    Icon.getImageSource(iconPrefix + "search", 30),
     // 2. Icon for menu item
-    Icon.getImageSource("ios-menu", 30),
-  ]).then(sources => {
-    console.log("startMainTabs.sources: ", sources)
-    startTabBasedApps(sources);
-  }).catch(err => {
-    console.log(err);
-  });
+    Icon.getImageSource(iconPrefix + "menu", 30)
+  ])
+    .then(sources => {
+      startTabBasedApps(sources);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 /**
@@ -43,7 +45,7 @@ const startTabBasedApps = icons => {
               id: "sideDrawerToggle"
             }
           ]
-        },
+        }
       },
       {
         label: "Find",
@@ -58,13 +60,13 @@ const startTabBasedApps = icons => {
               id: "sideDrawerToggle"
             }
           ]
-        },
+        }
       }
     ],
     drawer: {
       left: {
         screen: screens.SIDE_DRAWER_SCREEN,
-        fixedWidth:'30%'
+        fixedWidth: "30%"
       }
     }
   });

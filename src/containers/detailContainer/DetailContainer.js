@@ -3,6 +3,7 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import PlaceDetail from "../../components/placeDetail/PlaceDetail";
+import {iconPrefix} from '../../UI/platform/PlatformInfo'
 
 class DetailContainer extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class DetailContainer extends React.Component {
         />
         <View style={styles.PlaceDetailBtn}>
           <TouchableOpacity onPress={()=>this.props.deletePlace(this.props.selectedPlace.key)}>
-            <Icon color="#F00" size={30} name="ios-trash" />
+            <Icon color="#F00" size={30} name={iconPrefix+"trash"} />
           </TouchableOpacity>
         </View>
       </View>
