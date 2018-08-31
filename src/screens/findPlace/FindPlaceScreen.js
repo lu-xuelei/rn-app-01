@@ -15,7 +15,8 @@ class FindPlaceScreen extends React.Component {
 
   state = {
     placesLoaded: false,
-    removeAnim: new Animated.Value(1) // Initial value for opacity
+    removBtnAnim: new Animated.Value(1), // Initial value for button opacity
+    showListAnim: new Animated.Value(0) // Initial value for list opacity
   };
 
   constructor(props) {
@@ -42,7 +43,6 @@ class FindPlaceScreen extends React.Component {
    */
   onItemSelected = placeKey => {
     const place = this.props.places.find(place => place.key === placeKey);
-    console.log("FindPlaceScreen.onItemSelected", place);
 
     /**
      * Lead to a new screen to view place details
@@ -60,12 +60,27 @@ class FindPlaceScreen extends React.Component {
    * Start find place with button animation
    */
   startFindPlace = () => {
-    Animated.timing(this.state.removeAnim, {
+    Animated.timing(this.state.removBtnAnim, {
       toValue: 0, // Ends to opacity 0
-      duration: 5000, // Animate for 500 msec
+      duration: 500, // Animate for 500 msec
+      useNativeDriver: true
+    }).start(() => {
+      // Logic after animation is done
+      this.setState({ placesLoaded: true });
+      this.displayPlaceList();
+    });
+  };
+
+  /**
+   * Display place list with animation
+   */
+  displayPlaceList = () => {
+    Animated.spring(this.state.showListAnim, {
+      toValue: 1,
+      speed: 4,
+      bounciness: 6,
       useNativeDriver: true
     }).start();
-
   };
 
   render() {
@@ -73,10 +88,10 @@ class FindPlaceScreen extends React.Component {
       <Animated.View
         style={{
           flex: 1,
-          opacity: this.state.removeAnim,
+          opacity: this.state.removBtnAnim,
           transform: [
             {
-              scale: this.state.removeAnim.interpolate({
+              scale: this.state.removBtnAnim.interpolate({
                 inputRange: [0, 1],
                 outputRange: [12, 1]
               })
@@ -99,10 +114,22 @@ class FindPlaceScreen extends React.Component {
 
     if (this.state.placesLoaded) {
       content = (
-        <ListContainer
-          places={this.props.places}
-          onSelectPlace={this.onItemSelected}
-        />
+        <Animated.View
+          style={{
+          flex: 1,
+          opacity: this.state.showListAnim,
+          transform: [
+            {
+              scale: this.state.showListAnim
+            }
+          ]
+          }}
+        >
+          <ListContainer
+            places={this.props.places}
+            onSelectPlace={this.onItemSelected}
+          />
+        </Animated.View>
       );
     }
     return content;

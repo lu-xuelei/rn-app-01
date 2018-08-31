@@ -1,18 +1,21 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet , Text} from "react-native";
 
 import ListItems from "../../components/listItems/ListItems";
+import { txtHeadings } from "../../UI/styles/TxtStyles";
 
 class ListContainer extends React.Component {
   render() {
-    return (
-      <View style={styles.ListContainer}>
+    let content = <Text style={txtHeadings.Heading2}>No Places Available</Text>;
+    if (this.props.places.length > 0) {
+      content = (
         <ListItems
           places={this.props.places}
           onSelectPlace={this.props.onSelectPlace}
         />
-      </View>
-    );
+      );
+    }
+    return <View style={styles.ListContainer}>{content}</View>;
   }
 }
 
