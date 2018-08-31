@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import {Primary, Secondary} from './Colors';
 
 const BTN_VIEW = {
   overflow: "visible",
@@ -25,11 +26,11 @@ const BTN_TEXT = {
 export const btnDefault = StyleSheet.create({
   btnNormal: {
     ...BTN_VIEW,
-    backgroundColor: "#004087",
+    backgroundColor: Primary.color1,
   },
   btnDisabled: {
     ...BTN_VIEW,
-    backgroundColor: "#8DC3EA",
+    backgroundColor: Primary.color4,
   },
   btnText: {
     ...BTN_TEXT
@@ -39,11 +40,11 @@ export const btnDefault = StyleSheet.create({
 export const btnDanger = StyleSheet.create({
   btnNormal: {
     ...BTN_VIEW,
-    backgroundColor: "#F84746",
+    backgroundColor: Secondary.red1,
   },
   btnDisabled: {
     ...BTN_VIEW,
-    backgroundColor: "#FFCBD0",
+    backgroundColor: Secondary.red3,
   },
   btnText: {
     ...BTN_TEXT
@@ -53,11 +54,11 @@ export const btnDanger = StyleSheet.create({
 export const btnSuccess = StyleSheet.create({
   btnNormal: {
     ...BTN_VIEW,
-    backgroundColor: "#00B460",
+    backgroundColor: Secondary.green1,
   },
   btnDisabled: {
     ...BTN_VIEW,
-    backgroundColor: "#B8E9CE",
+    backgroundColor: Secondary.green3,
   },
   btnText: {
     ...BTN_TEXT
@@ -70,21 +71,21 @@ export const btnSuccess = StyleSheet.create({
 export const btnAction = StyleSheet.create({
   btnNormal: {
     ...BTN_VIEW,
-    backgroundColor: "#FFFFFF",
-    borderColor: "#004087",
+    backgroundColor: 'white',
+    borderColor: Primary.color1,
   },
   txtNormal: {
     ...BTN_TEXT,
-    color: "#004087",
+    color: Primary.color1,
   },
   btnDanger: {
     ...BTN_VIEW,
-    backgroundColor: "#FFFFFF",
-    borderColor: "#F84746",
+    backgroundColor: "white",
+    borderColor: Secondary.red1,
   },
   txtDanger: {
     ...BTN_TEXT,
-    color: "#F84746",
+    color: Secondary.red1,
   }
 });
 

@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
-
+import {Primary, Neutrals} from './Colors'
 const HEADING = {
   fontFamily: "Arial",
-  color: "#004087",
+  color: Primary.color1,
   fontStyle: "normal",
   fontWeight: "bold",
   backgroundColor: "transparent"
@@ -22,7 +22,7 @@ export const txtHeadings = StyleSheet.create({
 export const txtLabels = StyleSheet.create({
   Short: {
     fontFamily: "Arial",
-    color: "#004087",
+    color: Primary.color1,
     fontWeight: "bold"
   }
 });

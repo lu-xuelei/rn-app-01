@@ -1,33 +1,37 @@
 import React from "react";
-import { View } from "react-native";
 import { connect } from "react-redux";
 
 import ListContainer from "../../containers/listContainer/ListContainer";
 import { VIEW_PLACE_SCREEN } from "../Screens";
+import { Primary } from "../../UI/styles/Colors";
 
 class FindPlaceScreen extends React.Component {
+  static navigatorStyle = {
+    navBarButtonColor: Primary.color1
+  };
+
   constructor(props) {
     super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
   }
 
-  onNavigatorEvent = (event) => {
+  onNavigatorEvent = event => {
     if (event.type === "NavBarButtonPress") {
       if (event.id === "sideDrawerToggle") {
         this.props.navigator.toggleDrawer({
-          side: "left",
+          side: "left"
         });
       }
     }
-  }
+  };
 
   /**
    * Handle event of place selection
    */
   onItemSelected = placeKey => {
     const place = this.props.places.find(place => place.key === placeKey);
-    console.log("FindPlaceScreen.onItemSelected",place);
-    
+    console.log("FindPlaceScreen.onItemSelected", place);
+
     /**
      * Lead to a new screen to view place details
      */
@@ -42,12 +46,10 @@ class FindPlaceScreen extends React.Component {
 
   render() {
     return (
-      <View>
-        <ListContainer
-          places={this.props.places}
-          onSelectPlace={this.onItemSelected}
-        />
-      </View>
+      <ListContainer
+        places={this.props.places}
+        onSelectPlace={this.onItemSelected}
+      />
     );
   }
 }
@@ -58,6 +60,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(FindPlaceScreen);
+export default connect(mapStateToProps)(FindPlaceScreen);
