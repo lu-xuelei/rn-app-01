@@ -16,6 +16,10 @@ export const txtHeadings = StyleSheet.create({
   Heading2: {
     ...HEADING,
     fontSize: 24
+  },
+  Heading3: {
+    ...HEADING,
+    fontSize: 22
   }
 });
 

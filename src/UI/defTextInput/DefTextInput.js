@@ -1,5 +1,6 @@
 import React from "react";
 import { TextInput, StyleSheet } from "react-native";
+import { Primary } from "../styles/Colors";
 
 /**
  * Default TextInput with:
@@ -18,12 +19,12 @@ const defTextInput = props => {
 const styles = StyleSheet.create({
   DefaultTextInput: {
     width: "100%",
-    borderWidth: 1,
-    borderColor: '#eee',
+    borderWidth: 2,
+    borderColor: Primary.color4,
     padding: 5,
     marginTop: 8,
     marginBottom: 8,
-    borderRadius: 20,
+    borderRadius: 20
   }
 });
 

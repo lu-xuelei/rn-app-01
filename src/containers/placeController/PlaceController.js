@@ -1,5 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Button, TextInput } from "react-native";
+import DefTextInput from '../../UI/defTextInput/DefTextInput';
+import DefButton from '../../UI/buttons/DefButton';
 
 class PlaceController extends React.Component {
   state = {
@@ -35,14 +37,14 @@ class PlaceController extends React.Component {
   render() {
     return (
       <View style={styles.InputContainer}>
-        <TextInput
-          style={styles.PlaceInput}
+        <DefTextInput
+          style={{width:"70%"}}
           value={this.state.placeName}
           placeholder="Enter Place Name"
           onChangeText={this.onChangePlaceName}
         />
-        <Button
-          style={styles.PlaceButton}
+        <DefButton
+          vStyle={{width:"25%"}}
           title="Add"
           onPress={this.onAddPlace}
           accessibilityLabel="Add a Place"
@@ -56,17 +58,10 @@ const styles = StyleSheet.create({
   InputContainer: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: "space-around",
+    alignItems: "center",
+    margin: 5
   },
-  PlaceInput: {
-    width: "70%",
-    borderColor: "blue"
-  },
-  PlaceButton: {
-    width: "30%",
-    borderColor: "blue"
-  }
 });
 
 export default PlaceController;

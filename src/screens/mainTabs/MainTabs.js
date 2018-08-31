@@ -79,11 +79,6 @@ const startTabBasedApps = icons => {
 };
 
 /**
- * Common navigator style
- */
-const commonNavStyle = {};
-
-/**
  * Tab style
  */
 const tabsTyle = {
